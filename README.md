@@ -31,6 +31,10 @@ with inline citations**. Retrieval is **hybrid**: it fuses keyword search
 exact-term and meaning-based matches. Everything runs in the cloud on
 **OpenRouter free models** — no local GPU, no local ML libraries.
 
+<p align="center">
+  <img src="assets/demo.png" alt="Hybrid Search RAG — chat-with-your-docs web app" width="900">
+</p>
+
 ```
 ┌──────────┐   ┌──────────────┐   ┌──────────────────────────┐   ┌─────────────┐
 │ Upload   │──▶│ Chunk +      │──▶│ Hybrid retrieve          │──▶│ OpenRouter  │

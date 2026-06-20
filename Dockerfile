@@ -18,4 +18,8 @@ RUN pip install --no-cache-dir --user -r requirements.txt
 COPY --chown=user . .
 
 EXPOSE 7860
-CMD ["streamlit", "run", "app.py", "--server.port=7860", "--server.address=0.0.0.0"]
+# CORS + XSRF disabled so Streamlit's websocket works behind Hugging Face's
+# iframe proxy (otherwise the app hangs on "Starting…").
+CMD ["streamlit", "run", "app.py", \
+     "--server.port=7860", "--server.address=0.0.0.0", \
+     "--server.enableCORS=false", "--server.enableXsrfProtection=false"]

@@ -1,4 +1,28 @@
-# Hybrid Search RAG over Internal Docs
+<h1 align="center">📚 Hybrid Search RAG over Internal Docs</h1>
+
+<p align="center">
+  <b>Upload your docs, ask questions, get answers grounded in them — with inline citations.</b><br>
+  Hybrid retrieval (BM25 + embeddings) · Free OpenRouter models · Runs entirely in the cloud.
+</p>
+
+<p align="center">
+  <a href="https://saitejamothukuri-hybrid-search-rag.hf.space">
+    <img src="https://img.shields.io/badge/Live%20Demo-Open%20App-2563eb?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live Demo">
+  </a>
+  <a href="https://huggingface.co/spaces/SaitejaMothukuri/hybrid-search-rag">
+    <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Space-FFD21E?style=for-the-badge" alt="Hugging Face Space">
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white" alt="Python 3.12">
+  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white" alt="Streamlit">
+  <img src="https://img.shields.io/badge/LLM-OpenRouter%20(free)-6E56CF" alt="OpenRouter">
+  <img src="https://img.shields.io/badge/Retrieval-BM25%20%2B%20Embeddings-16A34A" alt="Hybrid retrieval">
+  <img src="https://img.shields.io/badge/License-MIT-22C55E" alt="MIT License">
+</p>
+
+---
 
 A live, **cloud-hosted** chat-with-your-docs web app. Anyone can upload PDFs /
 Markdown / text and ask questions — answers are **grounded in the documents
@@ -6,9 +30,6 @@ with inline citations**. Retrieval is **hybrid**: it fuses keyword search
 (BM25) with semantic search (NVIDIA Nemotron embeddings) so it catches both
 exact-term and meaning-based matches. Everything runs in the cloud on
 **OpenRouter free models** — no local GPU, no local ML libraries.
-
-🔗 **Live demo:** https://saitejamothukuri-hybrid-search-rag.hf.space
-&nbsp;·&nbsp; Space page: https://huggingface.co/spaces/SaitejaMothukuri/hybrid-search-rag
 
 ```
 ┌──────────┐   ┌──────────────┐   ┌──────────────────────────┐   ┌─────────────┐
@@ -23,7 +44,7 @@ exact-term and meaning-based matches. Everything runs in the cloud on
 | **Embeddings** | `nvidia/llama-nemotron-embed-vl-1b-v2:free` (2048-dim) |
 | **Chat** | `nvidia/nemotron-3-nano-30b-a3b:free` |
 
-## Why hybrid?
+## 🧠 Why hybrid?
 
 | Query style | BM25 (sparse) | Embeddings (dense) | Hybrid |
 |---|---|---|---|
@@ -34,14 +55,14 @@ The two ranked lists merge with **Reciprocal Rank Fusion** (`score = Σ 1/(k + r
 a scale-free, rank-based combiner. A `weighted` mode (min-max normalize, then an
 `alpha` blend of dense vs sparse) is also exposed so the trade-off is visible live.
 
-## Multi-user by design
+## 👥 Multi-user by design
 
 Uploaded documents are read **in memory** and the index is held in
 **`st.session_state`** — scoped to one browser session. Two visitors never see
 each other's documents. The built-in "Northwind" sample docs are a shared,
 read-only demo corpus so the app is usable the moment it loads.
 
-## Run locally
+## 🖥️ Run locally
 
 ```powershell
 python -m venv .venv
@@ -58,7 +79,7 @@ Verify the pipeline headlessly (embeddings + retrieval + one grounded answer):
 python scripts/smoke.py
 ```
 
-### Where to put your OpenRouter API key
+### 🔑 Where to put your OpenRouter API key
 
 Get a free key at <https://openrouter.ai/keys>. Locally, use any one of:
 
@@ -74,7 +95,7 @@ committed — `.gitignore` excludes `.streamlit/secrets.toml` and `.env`.
 
 Override models with `OPENROUTER_MODEL` / `OPENROUTER_EMBED_MODEL`.
 
-## Deploy (Hugging Face Spaces, free)
+## 🚀 Deploy (Hugging Face Spaces, free)
 
 One command — creates the Space (Docker SDK), sets the key as a Space secret,
 and uploads the app:
@@ -87,7 +108,7 @@ python scripts/deploy_hf.py --space-name hybrid-search-rag
 included `Dockerfile` runs Streamlit on port 7860. Streamlit Cloud also works —
 point it at this repo and add `OPENROUTER_API_KEY` in the app's secrets.
 
-## How it works
+## 🔧 How it works
 
 | Stage | File | What it does |
 |---|---|---|
@@ -102,7 +123,7 @@ Every answer ships with an inspectable **sources** panel showing each passage's
 fused score and its dense / BM25 rank. The system prompt forbids answering
 outside the retrieved context — if the docs don't cover it, the model says so.
 
-## Project layout
+## 🗂️ Project layout
 
 ```
 hybrid-search-rag/
@@ -122,6 +143,6 @@ hybrid-search-rag/
 └── .gitignore                   # excludes secrets, .env, venv
 ```
 
-## License
+## 📄 License
 
 MIT

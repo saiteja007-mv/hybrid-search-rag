@@ -7,7 +7,8 @@ with inline citations**. Retrieval is **hybrid**: it fuses keyword search
 exact-term and meaning-based matches. Everything runs in the cloud on
 **OpenRouter free models** — no local GPU, no local ML libraries.
 
-🔗 **Live demo:** https://huggingface.co/spaces/SaitejaMothukuri/hybrid-search-rag
+🔗 **Live demo:** https://saitejamothukuri-hybrid-search-rag.hf.space
+&nbsp;·&nbsp; Space page: https://huggingface.co/spaces/SaitejaMothukuri/hybrid-search-rag
 
 ```
 ┌──────────┐   ┌──────────────┐   ┌──────────────────────────┐   ┌─────────────┐

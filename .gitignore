@@ -1,0 +1,24 @@
+# Secrets — NEVER commit your API key
+.streamlit/secrets.toml
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+
+# Index cache + user-uploaded docs (keep sample docs only)
+data/index.pkl
+data/docs/*
+!data/docs/.gitkeep
+!data/docs/sample-*
+
+# Caches
+.cache/
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+.boot.log
